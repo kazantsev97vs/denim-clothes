@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.Entity;
 
 /**
- * Цвет
+ * Цвет, у него есть id, name, hex, rgb
  */
 @Entity
 @Data
@@ -14,18 +14,18 @@ public class Color extends BaseEntity {
     /**
      * Шестнадцатеричное представление цвета в формате RGB — # КК ЗЗ СС
      */
-    private String HEX;
+    private String hex;
 
     /**
      * Аддитивная цветовая модель RGB: Red, Green, Blue — Красный, Зелёный, Синий
      */
-    private String RGB;
+    private String rgb;
 
 
-    public Color(String name, String HEX, String RGB) {
+    public Color(String name, String hex, String rgb) {
         super(name);
-        this.HEX = HEX;
-        this.RGB = RGB;
+        this.hex = hex;
+        this.rgb = rgb;
     }
 
 }
