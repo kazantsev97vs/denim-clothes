@@ -16,18 +16,15 @@ import javax.persistence.OneToOne;
 @MappedSuperclass
 @Data
 public abstract class BaseMaterial extends BaseEntity {
-
     /**
-     * Стоимость материала
+     * Стоимость
      */
     private Double cost;
-
     /**
-     * Цвет материала
+     * Цвет
      */
     @OneToOne
     private Color color;
-
 
     public BaseMaterial(String name, Double cost, Color color) {
         super(name);

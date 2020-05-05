@@ -13,7 +13,9 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 @Data
 public abstract class BaseEntity {
-
+    /**
+     * Идентификатор
+     */
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
