@@ -5,9 +5,10 @@ import java.util.List;
 /**
  * Create Read Update Delete
  * - основные CRUD методы над сущностью
- * @param <Entity> -  сущность
+ * @param <Entity> - тип сущности
+ * @param <ID> - тип идентификатора сущности
  */
-public interface CRUD <Entity> {
+public interface CRUD <Entity, ID> {
 
     // Create ----------------------------------
 
@@ -17,9 +18,9 @@ public interface CRUD <Entity> {
 
     // Read ------------------------------------
 
-    Entity get(Long id);
+    Entity get(ID id);
 
-    List<Entity> getAll(List<Long> ids);
+    List<Entity> getAll(List<ID> ids);
 
     Long count();
 
@@ -29,7 +30,7 @@ public interface CRUD <Entity> {
 
     // Delete ----------------------------------
 
-    Boolean delete(Long id);
+    Boolean delete(ID id);
 
     Boolean deleteAll(List<Entity> entities);
 

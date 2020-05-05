@@ -8,13 +8,14 @@ import java.util.List;
 
 /**
  * Базовая реализация основных CRUD методов над сущностью
- * @param <Entity> - сущность
- * @param <Repository> - репозиторий сущности
+ * @param <Entity> - тип сущности
+ * @param <ID> - тип идентификатора сущности
+ * @param <Repository> - тип репозитория сущности
  */
 public abstract class BaseCRUDRepository
-        <Entity extends BaseEntity, Repository extends CrudRepository<Entity, Long>> implements CRUD <Entity> {
+        <Entity extends BaseEntity, ID, Repository extends CrudRepository<Entity, ID>> implements CRUD <Entity, ID> {
 
-    Repository repository;
+    protected Repository repository;
 
     public BaseCRUDRepository(Repository repository) { this.repository = repository; }
 
@@ -40,12 +41,12 @@ public abstract class BaseCRUDRepository
     // Read ------------------------------------
 
     @Override
-    public Entity get(Long id) {
+    public Entity get(ID id) {
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public List<Entity> getAll(List<Long> ids) {
+    public List<Entity> getAll(List<ID> ids) {
 
         List<Entity> list = new ArrayList<>();
 
@@ -53,6 +54,7 @@ public abstract class BaseCRUDRepository
 
         return list;
     }
+
 
     @Override
     public Long count() {
@@ -71,7 +73,7 @@ public abstract class BaseCRUDRepository
     // Delete ----------------------------------
 
     @Override
-    public Boolean delete(Long id) {
+    public Boolean delete(ID id) {
 
         repository.deleteById(id);
 
@@ -81,13 +83,12 @@ public abstract class BaseCRUDRepository
     @Override
     public Boolean deleteAll(List<Entity> entities) {
 
-        List<Long> ids = new ArrayList<>();
+        List<ID> ids = new ArrayList<>();
 
-        for (Entity entity : entities) ids.add(entity.getId());
+        for (Entity entity : entities) ids.add((ID) entity.getId());
 
         repository.deleteAll(entities);
 
         return getAll(ids).size() == 0;
     }
-
 }
