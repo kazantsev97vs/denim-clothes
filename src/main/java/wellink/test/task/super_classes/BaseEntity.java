@@ -26,7 +26,4 @@ public abstract class BaseEntity {
     public BaseEntity(String name) {
         this.name = name;
     }
-
-    public BaseEntity() {
-    }
 }

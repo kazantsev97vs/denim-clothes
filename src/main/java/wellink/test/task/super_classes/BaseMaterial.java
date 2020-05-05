@@ -34,16 +34,4 @@ public abstract class BaseMaterial extends BaseEntity {
         this.cost = cost;
         this.color = color;
     }
-
-    public BaseMaterial(Double cost, Color color) {
-        this.cost = cost;
-        this.color = color;
-    }
-
-    public BaseMaterial(String name) {
-        super(name);
-    }
-
-    public BaseMaterial() {
-    }
 }
