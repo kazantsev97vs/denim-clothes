@@ -6,5 +6,5 @@ import wellink.test.task.interfaces.CRUD;
 /**
  * CRUD-сервис для сущности 'Color'
  */
-public interface ColorService extends CRUD<Color> {
+public interface ColorService extends CRUD<Color, Long> {
 }

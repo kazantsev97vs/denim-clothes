@@ -12,12 +12,12 @@ import java.util.List;
  * @param <ID> - тип идентификатора сущности
  * @param <Repository> - тип репозитория сущности
  */
-public abstract class BaseCRUDRepository
+public abstract class CRUDImpl
         <Entity extends BaseEntity, ID, Repository extends CrudRepository<Entity, ID>> implements CRUD <Entity, ID> {
 
     protected Repository repository;
 
-    public BaseCRUDRepository(Repository repository) { this.repository = repository; }
+    public CRUDImpl(Repository repository) { this.repository = repository; }
 
 
     // Create ----------------------------------
@@ -54,7 +54,6 @@ public abstract class BaseCRUDRepository
 
         return list;
     }
-
 
     @Override
     public Long count() {
