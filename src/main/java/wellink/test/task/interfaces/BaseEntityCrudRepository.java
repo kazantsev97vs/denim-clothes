@@ -1,11 +1,15 @@
 package wellink.test.task.interfaces;
 
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.CrudRepository;
 import wellink.test.task.super_classes.BaseEntity;
 import java.util.List;
 
-public interface BaseEntityCrudRepository <Entity extends BaseEntity, ID> extends CrudRepository<Entity, ID> {
+/**
+ * Интерфейс для репозитория, работающего с сущностью содержайщей поле "name"
+ * по которому можно осуществить поиск
+ * @param <Entity> сущность содержащая поля "name" и "id"
+ */
+public interface BaseEntityCrudRepository <Entity extends BaseEntity>  {
 
     List<Entity> findAllByName(String name);
 
