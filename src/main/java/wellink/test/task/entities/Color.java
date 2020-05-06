@@ -21,11 +21,9 @@ public class Color extends BaseEntity {
      */
     private String rgb;
 
-
     public Color(String name, String hex, String rgb) {
         super(name);
         this.hex = hex;
         this.rgb = rgb;
     }
-
 }

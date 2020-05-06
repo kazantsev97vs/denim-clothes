@@ -1,6 +1,9 @@
 package wellink.test.task.entities;
 
+import lombok.Data;
 import wellink.test.task.super_classes.BaseEntity;
+
+import javax.persistence.Entity;
 
 /**
  * Фирма,
@@ -9,6 +12,8 @@ import wellink.test.task.super_classes.BaseEntity;
  *  - название
  *  - ...
  */
+@Entity
+@Data
 public class Firm extends BaseEntity {
 
     /**

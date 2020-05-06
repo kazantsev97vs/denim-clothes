@@ -1,6 +1,9 @@
 package wellink.test.task.entities.accounting_department;
 
+import lombok.Data;
 import wellink.test.task.super_classes.BaseEmployee;
+
+import javax.persistence.Entity;
 
 /**
  * Бухгалтер
@@ -23,6 +26,10 @@ import wellink.test.task.super_classes.BaseEmployee;
  *  - участие в инвентаризациях
  *  - выполнение иных поручений руководителя
  */
+@Entity
+@Data
 public class Accountant extends BaseEmployee {
-
+    public Accountant(String name, String firstName, String lastName, String phoneNumber, String mail, Double salary, String position) {
+        super(name, firstName, lastName, phoneNumber, mail, salary, position);
+    }
 }

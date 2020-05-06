@@ -1,6 +1,9 @@
 package wellink.test.task.entities.supply_purchasing_department;
 
+import lombok.Data;
 import wellink.test.task.super_classes.BaseEmployee;
+
+import javax.persistence.Entity;
 
 /**
  * "Менеджер по закупкам и поставкам"
@@ -21,6 +24,8 @@ import wellink.test.task.super_classes.BaseEmployee;
  *
  *  - Претензионная работа с поставщиками и транспортными компаниями
  */
+@Entity
+@Data
 public class PurchasingSupplyManager extends BaseEmployee {
     /*
             2. Должностные обязанности менеджера по закупкам
@@ -42,4 +47,8 @@ public class PurchasingSupplyManager extends BaseEmployee {
         2.14. Консультирует продавцов, а при необходимости – покупателей по своей товарной группе.
         2.15. Выполняет отдельные служебные поручения своего непосредственного руководителя.
      */
+
+    public PurchasingSupplyManager(String name, String firstName, String lastName, String phoneNumber, String mail, Double salary, String position) {
+        super(name, firstName, lastName, phoneNumber, mail, salary, position);
+    }
 }
